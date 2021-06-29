@@ -1,4 +1,14 @@
-document.getElementById("run").addEventListener("click", function () {
+
+
+
+document.getElementById("run").addEventListener("click", runForecast);
+document.querySelector('#txtSearch').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        runForecast()
+    }
+});
+
+function runForecast() {
     const cityName = document.getElementById("cityName").value;
 
     let firstDay;
@@ -28,4 +38,4 @@ document.getElementById("run").addEventListener("click", function () {
             }
         )
 
-})
+}
