@@ -1,5 +1,5 @@
 document.getElementById("run").addEventListener("click", runForecast);
-document.querySelector('#txtSearch').addEventListener('keypress', function (e) {
+document.getElementById('cityName').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         runForecast()
     }
@@ -44,8 +44,8 @@ function runForecast() {
             function (allForecastData) {
                 firstDay = allForecastData.list.slice(0, 8);
 
-                let firstDayMinTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp_min)
-                let firstDayMaxTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp_max)
+                let firstDayMinTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
+                let firstDayMaxTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
 
                 // make object array into array of numbers
                 let minTempFirstDay = Math.min(...firstDayMinTemps);
@@ -69,6 +69,30 @@ function runForecast() {
 
 
                 secondDay = allForecastData.list.slice(8, 16);
+                let secondDayMinTemps = secondDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
+                let secondDayMaxTemps = secondDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
+
+                // make object array into array of numbers
+                let minTempSecondDay = Math.min(...secondDayMinTemps);
+                let maxTempSecondDay = Math.max(...secondDayMaxTemps);
+
+                let secondDayTemps = secondDay.map((threeHourWeather) => threeHourWeather.main.temp)
+                const secondDayAverageTemp = getAverageTemp(secondDayTemps);
+
+                let secondDayHumidities = secondDay.map((threeHourWeather) => threeHourWeather.main.humidity)
+                const secondDayAverageHumidity = getAverageHumidity(secondDayHumidities);
+
+                let clone2 = template.content.cloneNode(true);
+
+
+                clone2.querySelector('.averageTemp').textContent = secondDayAverageTemp;
+                clone2.querySelector('.minTemp').textContent = minTempSecondDay;
+                clone2.querySelector('.maxTemp').textContent = maxTempSecondDay;
+                clone2.querySelector('.humidity').textContent = secondDayAverageHumidity;
+
+                document.getElementById('forecastTarget').appendChild(clone2);
+
+
 
 
                 thirdDay = allForecastData.list.slice(16, 24);
