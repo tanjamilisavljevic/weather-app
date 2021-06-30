@@ -173,3 +173,6 @@ function runForecast() {
         )
 
 }
+
+// TODO: Add which day it is
+// TODO: Remember input

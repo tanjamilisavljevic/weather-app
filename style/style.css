@@ -28,7 +28,7 @@ body {
 }
 
 .day {
-    background-image: linear-gradient(#b2c4e5, #cdd8e8);
+    background-image: linear-gradient(#abc1e7, #cdd8e8);
     color: #1f325a;
     border-radius: 16px;
     padding: 1em;
@@ -61,7 +61,7 @@ label {
     margin-bottom: 1em;
     color: #f1eee4;
     background-image: linear-gradient(#4f6fb4, #5d7db4);
-    padding: 0.3em;
+    padding: 0.5em;
     border-radius: 16px;
 }
 
@@ -94,16 +94,18 @@ button:active {
     text-indent: 0.8em;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (min-width: 600px) and (max-width: 950px){
     #forecastTarget {
         display: grid;
         grid-template-columns: 50% 50%;
     }
 }
-@media only screen and (max-width: 540px) {
+@media only screen and (min-width: 0px) and (max-width: 599px){
     #forecastTarget {
         display: flex;
         flex-flow: column;
         align-items: center;
     }
 }
+
+
