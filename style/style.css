@@ -100,7 +100,7 @@ button:active {
         grid-template-columns: 50% 50%;
     }
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 540px) {
     #forecastTarget {
         display: flex;
         flex-flow: column;
