@@ -26,6 +26,9 @@ function getAverageHumidity(humidities) {
 }
 
 function runForecast() {
+    document.getElementById("forecastTarget").innerHTML = "";
+    // reset html
+
     const cityName = document.getElementById("cityName").value;
 
     let firstDay;
