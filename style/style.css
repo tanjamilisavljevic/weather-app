@@ -25,26 +25,33 @@ body {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    margin: 2em;
 }
 
 .day {
-    background-image: linear-gradient(#abc1e7, #cdd8e8);
+    background-image: linear-gradient( #cdd8e8, #abc1e7);
     color: #1f325a;
     border-radius: 16px;
     padding: 1em;
-    margin: 1rem;
     margin-top: 3rem;
     font-family: 'Noto Serif KR', serif;
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 25% 25% 25% 25%;
+    margin: 1em;
+    width: 25vw;
 }
-
+.tempsWrapper{
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
 .templateLabel{
     justify-self: start;
 }
+.averageTempWrapper{
+    display: flex;
+    justify-content: center;
+}
 .averageTemp{
-    justify-self: end;
+    font-size: 3em;
 }
 .minTemp{
     justify-self: end;
@@ -55,7 +62,7 @@ body {
 .humidity{
     justify-self: end;
 }
-label {
+.pickCityLabel {
     font-family: 'Noto Serif KR', serif;
     font-size: 1.2em;
     margin-bottom: 1em;
@@ -82,7 +89,12 @@ button:active {
     color: #304C89;
     background-color: #f1eee4;
 }
-
+.rememberLabel{
+    color: #1f325a;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 0.8em;
+    background-color: #9EB7E5;
+}
 #cityName {
     font-family: 'Noto Serif KR', serif;
     font-size: 1em;
@@ -92,9 +104,27 @@ button:active {
     background-color: #f1eee4;
     color: #304C89;
     text-indent: 0.8em;
+    margin-bottom: 1em;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 950px){
+@media only screen and (min-width: 950px) and (max-width: 1100px){
+    .templateLabel{
+        font-size: small;
+    }
+    .averageTemp{
+        font-size: 1.5em;
+    }
+    .minTemp{
+        font-size: small;
+    }
+    .maxTemp{
+        font-size: small;
+    }
+    .humidity{
+        font-size: small;
+    }
+}
+@media only screen and (min-width: 599px) and (max-width: 950px){
     #forecastTarget {
         display: grid;
         grid-template-columns: 50% 50%;
@@ -105,6 +135,9 @@ button:active {
         display: flex;
         flex-flow: column;
         align-items: center;
+    }
+    .day{
+        min-width: 50vw;
     }
 }
 
