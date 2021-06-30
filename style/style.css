@@ -1,3 +1,109 @@
-body{
-    background-color: lightblue;
+body {
+    background-color: #9EB7E5;
+    margin-left: 0;
+}
+
+.bigTitle {
+    font-family: 'Bree Serif', serif;
+    color: #f1eee4;
+    letter-spacing: 0.1em;
+    font-size: 2em;
+    background-image: linear-gradient(#304C89, #395aa3);
+    padding: 0.2em;
+    max-width: 20em;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.cityWrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#forecastTarget {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
+.day {
+    background-image: linear-gradient(#b2c4e5, #cdd8e8);
+    color: #1f325a;
+    border-radius: 16px;
+    padding: 1em;
+    margin: 1rem;
+    margin-top: 3rem;
+    font-family: 'Noto Serif KR', serif;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.templateLabel{
+    justify-self: start;
+}
+.averageTemp{
+    justify-self: end;
+}
+.minTemp{
+    justify-self: end;
+}
+.maxTemp{
+    justify-self: end;
+}
+.humidity{
+    justify-self: end;
+}
+label {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    color: #f1eee4;
+    background-image: linear-gradient(#4f6fb4, #5d7db4);
+    padding: 0.3em;
+    border-radius: 16px;
+}
+
+button {
+    font-family: 'Noto Serif KR', serif;
+    margin-top: 1.5em;
+    font-size: 1.3em;
+    padding: 0.3em;
+    border-radius: 16px;
+    border: solid #304C89;
+    background-color: #304C89;
+    color: #f1eee4;
+    cursor: pointer;
+    box-shadow: #09101a 2px 2px 10px;
+}
+
+button:active {
+    color: #304C89;
+    background-color: #f1eee4;
+}
+
+#cityName {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 1em;
+    padding: 0.1em;
+    border: solid #304C89;
+    border-radius: 16px;
+    background-color: #f1eee4;
+    color: #304C89;
+    text-indent: 0.8em;
+}
+
+@media only screen and (max-width: 900px) {
+    #forecastTarget {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #forecastTarget {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
 }

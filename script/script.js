@@ -63,10 +63,10 @@ function runForecast() {
                 let template = document.getElementById("forecastTemplate");
                 let clone = template.content.cloneNode(true);
 
-                clone.querySelector('.averageTemp').textContent = Math.round(firstDayAverageTemp);
-                clone.querySelector('.minTemp').textContent =  Math.round(minTempFirstDay);
-                clone.querySelector('.maxTemp').textContent =  Math.round(maxTempFirstDay);
-                clone.querySelector('.humidity').textContent =  Math.round(firstDayAverageHumidity);
+                clone.querySelector('.averageTemp').textContent = Math.round(firstDayAverageTemp) + "°C";
+                clone.querySelector('.minTemp').textContent = Math.round(minTempFirstDay) + "°C";
+                clone.querySelector('.maxTemp').textContent = Math.round(maxTempFirstDay) + "°C";
+                clone.querySelector('.humidity').textContent = Math.round(firstDayAverageHumidity) + "%";
 
                 document.getElementById('forecastTarget').appendChild(clone);
 
@@ -88,10 +88,10 @@ function runForecast() {
                 let clone2 = template.content.cloneNode(true);
 
 
-                clone2.querySelector('.averageTemp').textContent =  Math.round(secondDayAverageTemp);
-                clone2.querySelector('.minTemp').textContent =  Math.round(minTempSecondDay);
-                clone2.querySelector('.maxTemp').textContent =  Math.round(maxTempSecondDay);
-                clone2.querySelector('.humidity').textContent =  Math.round(secondDayAverageHumidity);
+                clone2.querySelector('.averageTemp').textContent = Math.round(secondDayAverageTemp) + "°C";
+                clone2.querySelector('.minTemp').textContent = Math.round(minTempSecondDay) + "°C";
+                clone2.querySelector('.maxTemp').textContent =Math.round(maxTempSecondDay) + "°C";
+                clone2.querySelector('.humidity').textContent = Math.round(secondDayAverageHumidity) + "%";
 
                 document.getElementById('forecastTarget').appendChild(clone2);
 
@@ -115,10 +115,10 @@ function runForecast() {
                 let clone3 = template.content.cloneNode(true);
 
 
-                clone3.querySelector('.averageTemp').textContent =  Math.round(thirdDayAverageTemp);
-                clone3.querySelector('.minTemp').textContent =  Math.round(minTempThirdDay);
-                clone3.querySelector('.maxTemp').textContent =  Math.round(maxTempThirdDay);
-                clone3.querySelector('.humidity').textContent =  Math.round(thirdDayAverageHumidity);
+                clone3.querySelector('.averageTemp').textContent = Math.round(thirdDayAverageTemp)+ "°C";
+                clone3.querySelector('.minTemp').textContent =  Math.round(minTempThirdDay)+ "°C";
+                clone3.querySelector('.maxTemp').textContent =  Math.round(maxTempThirdDay)+ "°C";
+                clone3.querySelector('.humidity').textContent =  Math.round(thirdDayAverageHumidity)+ "%";
 
                 document.getElementById('forecastTarget').appendChild(clone3);
 
@@ -139,10 +139,10 @@ function runForecast() {
                 let clone4 = template.content.cloneNode(true);
 
 
-                clone4.querySelector('.averageTemp').textContent =  Math.round(fourthDayAverageTemp);
-                clone4.querySelector('.minTemp').textContent =  Math.round(minTempFourthDay);
-                clone4.querySelector('.maxTemp').textContent =  Math.round(maxTempFourthDay);
-                clone4.querySelector('.humidity').textContent =  Math.round(fourthDayAverageHumidity);
+                clone4.querySelector('.averageTemp').textContent = Math.round(fourthDayAverageTemp)+ "°C";
+                clone4.querySelector('.minTemp').textContent =  Math.round(minTempFourthDay)+ "°C";
+                clone4.querySelector('.maxTemp').textContent =  Math.round(maxTempFourthDay)+ "°C";
+                clone4.querySelector('.humidity').textContent =  Math.round(fourthDayAverageHumidity)+ "%";
 
                 document.getElementById('forecastTarget').appendChild(clone4);
 
@@ -163,10 +163,10 @@ function runForecast() {
                 let clone5 = template.content.cloneNode(true);
 
 
-                clone5.querySelector('.averageTemp').textContent =  Math.round(fifthDayAverageTemp);
-                clone5.querySelector('.minTemp').textContent =  Math.round(minTempFifthDay);
-                clone5.querySelector('.maxTemp').textContent =  Math.round(maxTempFifthDay);
-                clone5.querySelector('.humidity').textContent =  Math.round(fifthDayAverageHumidity);
+                clone5.querySelector('.averageTemp').textContent =  Math.round(fifthDayAverageTemp)+ "°C";
+                clone5.querySelector('.minTemp').textContent =   Math.round(minTempFifthDay)+ "°C";
+                clone5.querySelector('.maxTemp').textContent =  Math.round(maxTempFifthDay)+ "°C";
+                clone5.querySelector('.humidity').textContent =  Math.round(fifthDayAverageHumidity)+ "%";
 
                 document.getElementById('forecastTarget').appendChild(clone5);
             }

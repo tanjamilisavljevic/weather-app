@@ -4,25 +4,43 @@
     <meta charset="UTF-8">
     <title>Weather App</title>
     <link rel="stylesheet" href="style/style.css">
+    <!--    Font links-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<!--    Font Awesome link-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
-<label for="cityName">Choose a city:</label>
-<input type="text" id="cityName" name="cityName">
+<h1 class="bigTitle"> 🌞 What's the weather like? </h1>
+<div class="cityWrapper">
+    <label for="cityName"> <i class="fa fa-map-pin"></i>  Pick a city:</label>
+    <div class="inputWrapper">
+        <input type="text" id="cityName" name="cityName">
+    </div>
+    <div class="buttonWrapper">
+        <button type="button" id="run">Show 5-day forecast</button>
+    </div>
+</div>
 
-<button type="button" id="run">Show 5-day forecast</button>
-
-<div class="templateWrapper">
 <template id="forecastTemplate">
-    <li class="day">
+    <div class="day">
+        <p class="templateLabel">Daily average: </p>
         <p class="averageTemp"></p>
+        <p class="templateLabel">Daily minimum: </p>
         <p class="minTemp"></p>
+        <p class="templateLabel">Daily maximum: </p>
         <p class="maxTemp"></p>
+        <p class="templateLabel">Average humidity: </p>
         <p class="humidity"></p>
-    </li>
+    </div>
 </template>
 <div id="forecastTarget"></div>
-</div>
+
 
 <script src="script/script.js"></script>
 </body>
