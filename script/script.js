@@ -25,11 +25,35 @@ function getAverageHumidity(humidities) {
     return averageHumidity;
 }
 
+const rememberCheck = document.getElementById("rememberMe"),
+    cityInput = document.getElementById("cityName");
+
+if (localStorage.checkbox && localStorage.checkbox !== "") {
+    rememberCheck.setAttribute("checked", "checked");
+    cityInput.value = localStorage.city;
+} else {
+    rememberCheck.removeAttribute("checked");
+    cityInput.value = "";
+}
+
+
+function lsRememberMe(){
+    if (rememberCheck.checked && cityInput.value !== "") {
+        localStorage.city = cityInput.value;
+        localStorage.checkbox = rememberCheck.value;
+    } else {
+        localStorage.city = "";
+        localStorage.checkbox = "";
+    }
+}
+
 function runForecast() {
     document.getElementById("forecastTarget").innerHTML = "";
     // reset html
 
     const cityName = document.getElementById("cityName").value;
+
+    lsRememberMe();
 
     let firstDay;
     let secondDay;
