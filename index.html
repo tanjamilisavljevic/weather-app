@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather App</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 
@@ -11,7 +12,7 @@
 
 <button type="button" id="run">Show 5-day forecast</button>
 
-
+<div class="templateWrapper">
 <template id="forecastTemplate">
     <li class="day">
         <p class="averageTemp"></p>
@@ -20,8 +21,8 @@
         <p class="humidity"></p>
     </li>
 </template>
-<ul id="forecastTarget"></ul>
-
+<div id="forecastTarget"></div>
+</div>
 
 <script src="script/script.js"></script>
 </body>
