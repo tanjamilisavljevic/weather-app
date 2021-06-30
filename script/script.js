@@ -96,23 +96,79 @@ function runForecast() {
 
 
                 thirdDay = allForecastData.list.slice(16, 24);
+                let thirdDayMinTemps = thirdDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
+                let thirdDayMaxTemps = thirdDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
 
+                // make object array into array of numbers
+                let minTempThirdDay = Math.min(...thirdDayMinTemps);
+                let maxTempThirdDay = Math.max(...thirdDayMaxTemps);
+
+                let thirdDayTemps = thirdDay.map((threeHourWeather) => threeHourWeather.main.temp)
+                const thirdDayAverageTemp = getAverageTemp(thirdDayTemps);
+
+                let thirdDayHumidities = thirdDay.map((threeHourWeather) => threeHourWeather.main.humidity)
+                const thirdDayAverageHumidity = getAverageHumidity(thirdDayHumidities);
+
+                let clone3 = template.content.cloneNode(true);
+
+
+                clone3.querySelector('.averageTemp').textContent = thirdDayAverageTemp;
+                clone3.querySelector('.minTemp').textContent = minTempThirdDay;
+                clone3.querySelector('.maxTemp').textContent = maxTempThirdDay;
+                clone3.querySelector('.humidity').textContent = thirdDayAverageHumidity;
+
+                document.getElementById('forecastTarget').appendChild(clone3);
 
                 fourthDay = allForecastData.list.slice(24, 32);
+                let fourthDayMinTemps = fourthDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
+                let fourthDayMaxTemps = fourthDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
 
+                // make object array into array of numbers
+                let minTempFourthDay = Math.min(...fourthDayMinTemps);
+                let maxTempFourthDay = Math.max(...fourthDayMaxTemps);
+
+                let fourthDayTemps = fourthDay.map((threeHourWeather) => threeHourWeather.main.temp)
+                const fourthDayAverageTemp = getAverageTemp(fourthDayTemps);
+
+                let fourthDayHumidities = fourthDay.map((threeHourWeather) => threeHourWeather.main.humidity)
+                const fourthDayAverageHumidity = getAverageHumidity(fourthDayHumidities);
+
+                let clone4 = template.content.cloneNode(true);
+
+
+                clone4.querySelector('.averageTemp').textContent = fourthDayAverageTemp;
+                clone4.querySelector('.minTemp').textContent = minTempFourthDay;
+                clone4.querySelector('.maxTemp').textContent = maxTempFourthDay;
+                clone4.querySelector('.humidity').textContent = fourthDayAverageHumidity;
+
+                document.getElementById('forecastTarget').appendChild(clone4);
 
                 fifthDay = allForecastData.list.slice(32, 40);
+                let fifthDayMinTemps = fifthDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
+                let fifthDayMaxTemps = fifthDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
 
+                // make object array into array of numbers
+                let minTempFifthDay = Math.min(...fifthDayMinTemps);
+                let maxTempFifthDay = Math.max(...fifthDayMaxTemps);
+
+                let fifthDayTemps = fifthDay.map((threeHourWeather) => threeHourWeather.main.temp)
+                const fifthDayAverageTemp = getAverageTemp(fifthDayTemps);
+
+                let fifthDayHumidities = fifthDay.map((threeHourWeather) => threeHourWeather.main.humidity)
+                const fifthDayAverageHumidity = getAverageHumidity(fifthDayHumidities);
+
+                let clone5 = template.content.cloneNode(true);
+
+
+                clone5.querySelector('.averageTemp').textContent = fifthDayAverageTemp;
+                clone5.querySelector('.minTemp').textContent = minTempFifthDay;
+                clone5.querySelector('.maxTemp').textContent = maxTempFifthDay;
+                clone5.querySelector('.humidity').textContent = fifthDayAverageHumidity;
+
+                document.getElementById('forecastTarget').appendChild(clone5);
             }
         )
 
 }
 
-// const template = document.getElementById("template");
-// const clone = template.content.cloneNode(true);
-//
-// clone.querySelector('.name').textContent = hero.name;
-// clone.querySelector('.alter-ego').textContent = hero.alterEgo;
-// clone.querySelector('.powers').textContent = hero.abilities;
-//
-// document.getElementById('target').appendChild(clone);
+;
