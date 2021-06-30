@@ -106,7 +106,9 @@ button:active {
     text-indent: 0.8em;
     margin-bottom: 1em;
 }
-
+hr{
+    color: #f1eee4;
+}
 @media only screen and (min-width: 950px) and (max-width: 1100px){
     .templateLabel{
         font-size: small;

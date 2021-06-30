@@ -17,38 +17,42 @@
 </head>
 <body>
 
-    <h1 class="bigTitle"> 🌞 What's the weather like? </h1>
-    <div class="cityWrapper">
-        <label class="pickCityLabel" for="cityName"> <i class="fa fa-map-pin"></i> Pick a city: </label>
-        <div class="inputWrapper">
-            <input type="text" id="cityName" name="cityName">
+<h1 class="bigTitle"> 🌞 What's the weather like? </h1>
+<div class="cityWrapper">
+    <label class="pickCityLabel" for="cityName"> <i class="fa fa-map-pin"></i> Pick a city: </label>
+    <div class="inputWrapper">
+        <input type="text" id="cityName" name="cityName">
+    </div>
+    <div>
+        <input type="checkbox" value="lsRememberMe" id="rememberMe" class="rememberCheckbox"> <label
+            class="rememberLabel" for="rememberMe">Remember my location</label>
+    </div>
+    <div class="buttonWrapper">
+        <button type="button" id="run">Show 5-day forecast</button>
+    </div>
+</div>
+
+<template id="forecastTemplate">
+    <div class="day">
+        <div class="averageTempWrapper">
+            <p class="averageTemp"></p>
         </div>
         <div>
-        <input type="checkbox" value="lsRememberMe" id="rememberMe" class="rememberCheckbox"> <label class="rememberLabel" for="rememberMe">Remember my location</label>
+            <hr>
         </div>
-        <div class="buttonWrapper">
-            <button type="button" id="run">Show 5-day forecast</button>
+        <div class="tempsWrapper">
+            <p class="templateLabel">❄️ Low: </p>
+            <p class="minTemp"></p>
+            <p class="templateLabel">🔥 High: </p>
+            <p class="maxTemp"></p>
+            <p class="templateLabel">💧 Humidity: </p>
+            <p class="humidity"></p>
         </div>
     </div>
-
-    <template id="forecastTemplate">
-        <div class="day">
-            <div class="averageTempWrapper">
-                <p class="averageTemp"></p>
-            </div>
-            <div class="tempsWrapper">
-                <p class="templateLabel">❄️ Low: </p>
-                <p class="minTemp"></p>
-                <p class="templateLabel">🔥 High: </p>
-                <p class="maxTemp"></p>
-                <p class="templateLabel">💧 Humidity: </p>
-                <p class="humidity"></p>
-            </div>
-        </div>
-    </template>
-    <div id="forecastTarget"></div>
+</template>
+<div id="forecastTarget"></div>
 
 
-    <script src="script/script.js"></script>
+<script src="script/script.js"></script>
 </body>
 </html>
