@@ -25,6 +25,31 @@ function getAverageHumidity(humidities) {
     return averageHumidity;
 }
 
+function displayDailyValues(day) {
+    let minTemps = day.map((threeHourWeather) => threeHourWeather.main.temp_min);
+    let maxTemps = day.map((threeHourWeather) => threeHourWeather.main.temp_max);
+// make object array into array of numbers
+    let minTemp = Math.min(...minTemps);
+    let maxTemp = Math.max(...maxTemps);
+
+    let temps = day.map((threeHourWeather) => threeHourWeather.main.temp)
+    const averageTemp = getAverageTemp(temps);
+
+    let humidities = day.map((threeHourWeather) => threeHourWeather.main.humidity)
+    const averageHumidity = getAverageHumidity(humidities);
+
+    let template = document.getElementById("forecastTemplate");
+    let clone = template.content.cloneNode(true);
+
+    clone.querySelector('.averageTemp').textContent = Math.round(averageTemp) + "°C";
+    clone.querySelector('.minTemp').textContent = Math.round(minTemp) + "°C";
+    clone.querySelector('.maxTemp').textContent = Math.round(maxTemp) + "°C";
+    clone.querySelector('.humidity').textContent = Math.round(averageHumidity) + "%";
+
+    document.getElementById('forecastTarget').appendChild(clone);
+}
+
+
 const rememberCheck = document.getElementById("rememberMe"),
     cityInput = document.getElementById("cityName");
 
@@ -37,7 +62,7 @@ if (localStorage.checkbox && localStorage.checkbox !== "") {
 }
 
 
-function lsRememberMe(){
+function lsRememberMe() {
     if (rememberCheck.checked && cityInput.value !== "") {
         localStorage.city = cityInput.value;
         localStorage.checkbox = rememberCheck.value;
@@ -70,133 +95,17 @@ function runForecast() {
         .then(
             function (allForecastData) {
                 firstDay = allForecastData.list.slice(0, 8);
-
-                let firstDayMinTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
-                let firstDayMaxTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
-
-                // make object array into array of numbers
-                let minTempFirstDay = Math.min(...firstDayMinTemps);
-                let maxTempFirstDay = Math.max(...firstDayMaxTemps);
-
-                let firstDayTemps = firstDay.map((threeHourWeather) => threeHourWeather.main.temp)
-                const firstDayAverageTemp = getAverageTemp(firstDayTemps);
-
-                let firstDayHumidities = firstDay.map((threeHourWeather) => threeHourWeather.main.humidity)
-                const firstDayAverageHumidity = getAverageHumidity(firstDayHumidities);
-
-                let template = document.getElementById("forecastTemplate");
-                let clone = template.content.cloneNode(true);
-
-                clone.querySelector('.averageTemp').textContent = Math.round(firstDayAverageTemp) + "°C";
-                clone.querySelector('.minTemp').textContent = Math.round(minTempFirstDay) + "°C";
-                clone.querySelector('.maxTemp').textContent = Math.round(maxTempFirstDay) + "°C";
-                clone.querySelector('.humidity').textContent = Math.round(firstDayAverageHumidity) + "%";
-
-                document.getElementById('forecastTarget').appendChild(clone);
-
+                displayDailyValues(firstDay);
 
                 secondDay = allForecastData.list.slice(8, 16);
-                let secondDayMinTemps = secondDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
-                let secondDayMaxTemps = secondDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
-
-                // make object array into array of numbers
-                let minTempSecondDay = Math.min(...secondDayMinTemps);
-                let maxTempSecondDay = Math.max(...secondDayMaxTemps);
-
-                let secondDayTemps = secondDay.map((threeHourWeather) => threeHourWeather.main.temp)
-                const secondDayAverageTemp = getAverageTemp(secondDayTemps);
-
-                let secondDayHumidities = secondDay.map((threeHourWeather) => threeHourWeather.main.humidity)
-                const secondDayAverageHumidity = getAverageHumidity(secondDayHumidities);
-
-                let clone2 = template.content.cloneNode(true);
-
-
-                clone2.querySelector('.averageTemp').textContent = Math.round(secondDayAverageTemp) + "°C";
-                clone2.querySelector('.minTemp').textContent = Math.round(minTempSecondDay) + "°C";
-                clone2.querySelector('.maxTemp').textContent =Math.round(maxTempSecondDay) + "°C";
-                clone2.querySelector('.humidity').textContent = Math.round(secondDayAverageHumidity) + "%";
-
-                document.getElementById('forecastTarget').appendChild(clone2);
-
-
-
+                displayDailyValues(secondDay);
 
                 thirdDay = allForecastData.list.slice(16, 24);
-                let thirdDayMinTemps = thirdDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
-                let thirdDayMaxTemps = thirdDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
-
-                // make object array into array of numbers
-                let minTempThirdDay = Math.min(...thirdDayMinTemps);
-                let maxTempThirdDay = Math.max(...thirdDayMaxTemps);
-
-                let thirdDayTemps = thirdDay.map((threeHourWeather) => threeHourWeather.main.temp)
-                const thirdDayAverageTemp = getAverageTemp(thirdDayTemps);
-
-                let thirdDayHumidities = thirdDay.map((threeHourWeather) => threeHourWeather.main.humidity)
-                const thirdDayAverageHumidity = getAverageHumidity(thirdDayHumidities);
-
-                let clone3 = template.content.cloneNode(true);
-
-
-                clone3.querySelector('.averageTemp').textContent = Math.round(thirdDayAverageTemp)+ "°C";
-                clone3.querySelector('.minTemp').textContent =  Math.round(minTempThirdDay)+ "°C";
-                clone3.querySelector('.maxTemp').textContent =  Math.round(maxTempThirdDay)+ "°C";
-                clone3.querySelector('.humidity').textContent =  Math.round(thirdDayAverageHumidity)+ "%";
-
-                document.getElementById('forecastTarget').appendChild(clone3);
+                displayDailyValues(thirdDay);
 
                 fourthDay = allForecastData.list.slice(24, 32);
-                let fourthDayMinTemps = fourthDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
-                let fourthDayMaxTemps = fourthDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
-
-                // make object array into array of numbers
-                let minTempFourthDay = Math.min(...fourthDayMinTemps);
-                let maxTempFourthDay = Math.max(...fourthDayMaxTemps);
-
-                let fourthDayTemps = fourthDay.map((threeHourWeather) => threeHourWeather.main.temp)
-                const fourthDayAverageTemp = getAverageTemp(fourthDayTemps);
-
-                let fourthDayHumidities = fourthDay.map((threeHourWeather) => threeHourWeather.main.humidity)
-                const fourthDayAverageHumidity = getAverageHumidity(fourthDayHumidities);
-
-                let clone4 = template.content.cloneNode(true);
-
-
-                clone4.querySelector('.averageTemp').textContent = Math.round(fourthDayAverageTemp)+ "°C";
-                clone4.querySelector('.minTemp').textContent =  Math.round(minTempFourthDay)+ "°C";
-                clone4.querySelector('.maxTemp').textContent =  Math.round(maxTempFourthDay)+ "°C";
-                clone4.querySelector('.humidity').textContent =  Math.round(fourthDayAverageHumidity)+ "%";
-
-                document.getElementById('forecastTarget').appendChild(clone4);
+                displayDailyValues(fourthDay);
 
                 fifthDay = allForecastData.list.slice(32, 40);
-                let fifthDayMinTemps = fifthDay.map((threeHourWeather) => threeHourWeather.main.temp_min);
-                let fifthDayMaxTemps = fifthDay.map((threeHourWeather) => threeHourWeather.main.temp_max);
-
-                // make object array into array of numbers
-                let minTempFifthDay = Math.min(...fifthDayMinTemps);
-                let maxTempFifthDay = Math.max(...fifthDayMaxTemps);
-
-                let fifthDayTemps = fifthDay.map((threeHourWeather) => threeHourWeather.main.temp)
-                const fifthDayAverageTemp = getAverageTemp(fifthDayTemps);
-
-                let fifthDayHumidities = fifthDay.map((threeHourWeather) => threeHourWeather.main.humidity)
-                const fifthDayAverageHumidity = getAverageHumidity(fifthDayHumidities);
-
-                let clone5 = template.content.cloneNode(true);
-
-
-                clone5.querySelector('.averageTemp').textContent =  Math.round(fifthDayAverageTemp)+ "°C";
-                clone5.querySelector('.minTemp').textContent =   Math.round(minTempFifthDay)+ "°C";
-                clone5.querySelector('.maxTemp').textContent =  Math.round(maxTempFifthDay)+ "°C";
-                clone5.querySelector('.humidity').textContent =  Math.round(fifthDayAverageHumidity)+ "%";
-
-                document.getElementById('forecastTarget').appendChild(clone5);
-            }
-        )
-
-}
-
-// TODO: Add which day it is
-// TODO: Remember input
+                displayDailyValues(fifthDay);
+            })}
