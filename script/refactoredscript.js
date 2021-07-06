@@ -79,11 +79,9 @@ function runForecast() {
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=d558391af4161e2ee2e747ad0ce49859&units=metric`)
         .then(
-            function (response) {
-                return response.json();
-            })
+            response => response.json())
         .then(
-            function (allForecastData) {
+            allForecastData => {
                 firstDay = allForecastData.list.slice(0, 8);
                 displayDailyValues(firstDay);
 
