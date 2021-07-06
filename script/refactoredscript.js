@@ -70,30 +70,17 @@ function runForecast() {
 
     lsRememberMe();
 
-    let firstDay;
-    let secondDay;
-    let thirdDay;
-    let fourthDay;
-    let fifthDay;
-
 
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=d558391af4161e2ee2e747ad0ce49859&units=metric`)
         .then(
             response => response.json())
         .then(
             allForecastData => {
-                firstDay = allForecastData.list.slice(0, 8);
-                displayDailyValues(firstDay);
-
-                secondDay = allForecastData.list.slice(8, 16);
-                displayDailyValues(secondDay);
-
-                thirdDay = allForecastData.list.slice(16, 24);
-                displayDailyValues(thirdDay);
-
-                fourthDay = allForecastData.list.slice(24, 32);
-                displayDailyValues(fourthDay);
-
-                fifthDay = allForecastData.list.slice(32, 40);
-                displayDailyValues(fifthDay);
-            })}
+                for (let i = 0; i < 5; i++) {
+                    const sliceStart = 8 * i;
+                    const sliceEnd = sliceStart + 8;
+                    const day = allForecastData.list.slice(sliceStart, sliceEnd)
+                    displayDailyValues(day);
+                }
+            })
+}
