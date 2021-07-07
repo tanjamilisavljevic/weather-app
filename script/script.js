@@ -1,13 +1,11 @@
 import {getAverage} from './getAverage.js';
 
-
 document.getElementById("run").addEventListener("click", runForecast);
 document.getElementById('cityName').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         runForecast()
     }
 });
-
 
 function displayDailyValues(day) {
     let minTemps = day.map((threeHourWeather) => threeHourWeather.main.temp_min);
