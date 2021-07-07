@@ -1,13 +1,3 @@
-export function lsRememberMe() {
-    if (rememberCheck.checked && cityInput.value !== "") {
-        localStorage.city = cityInput.value;
-        localStorage.checkbox = rememberCheck.value;
-    } else {
-        localStorage.city = "";
-        localStorage.checkbox = "";
-    }
-}
-
 const rememberCheck = document.getElementById("rememberMe"),
     cityInput = document.getElementById("cityName");
 
@@ -18,3 +8,15 @@ if (localStorage.checkbox && localStorage.checkbox !== "") {
     rememberCheck.removeAttribute("checked");
     cityInput.value = "";
 }
+
+
+export function lsRememberMe() {
+    if (rememberCheck.checked && cityInput.value !== "") {
+        localStorage.city = cityInput.value;
+        localStorage.checkbox = rememberCheck.value;
+    } else {
+        localStorage.city = "";
+        localStorage.checkbox = "";
+    }
+}
+
