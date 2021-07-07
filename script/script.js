@@ -1,3 +1,6 @@
+import {getAverage} from './getAverage.js';
+
+
 document.getElementById("run").addEventListener("click", runForecast);
 document.getElementById('cityName').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -5,15 +8,6 @@ document.getElementById('cityName').addEventListener('keypress', function (e) {
     }
 });
 
-const getAverage = (fiveDayProperty) => {
-    let averageProperty = 0;
-    let sum = 0;
-    for (let i = 0; i < fiveDayProperty.length; i++) {
-        sum = sum + fiveDayProperty[i];
-    }
-    averageProperty = sum / fiveDayProperty.length;
-    return averageProperty;
-}
 
 function displayDailyValues(day) {
     let minTemps = day.map((threeHourWeather) => threeHourWeather.main.temp_min);
