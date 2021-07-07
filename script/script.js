@@ -1,5 +1,5 @@
 import {displayDailyValues} from './displayDailyValues.js';
-
+import {lsRememberMe} from './rememberMe.js';
 
 document.getElementById("run").addEventListener("click", runForecast);
 document.getElementById('cityName').addEventListener('keypress', function (e) {
@@ -7,27 +7,6 @@ document.getElementById('cityName').addEventListener('keypress', function (e) {
         runForecast()
     }
 });
-
-const rememberCheck = document.getElementById("rememberMe"),
-    cityInput = document.getElementById("cityName");
-
-if (localStorage.checkbox && localStorage.checkbox !== "") {
-    rememberCheck.setAttribute("checked", "checked");
-    cityInput.value = localStorage.city;
-} else {
-    rememberCheck.removeAttribute("checked");
-    cityInput.value = "";
-}
-
-function lsRememberMe() {
-    if (rememberCheck.checked && cityInput.value !== "") {
-        localStorage.city = cityInput.value;
-        localStorage.checkbox = rememberCheck.value;
-    } else {
-        localStorage.city = "";
-        localStorage.checkbox = "";
-    }
-}
 
 function runForecast() {
     document.getElementById("forecastTarget").innerHTML = "";
