@@ -1,5 +1,5 @@
-import {displayDailyValues} from './displayDailyValues.js';
-import {lsRememberMe} from './rememberMe.js';
+import {displayDailyValues} from './script/displayDailyValues.js';
+import {lsRememberMe} from './script/rememberMe.js';
 
 document.getElementById("run").addEventListener("click", runForecast);
 document.getElementById('cityName').addEventListener('keypress', function (e) {
