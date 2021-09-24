@@ -13,9 +13,14 @@ export function displayDailyValues(day) {
     let humidities = day.map((threeHourWeather) => threeHourWeather.main.humidity)
     const averageHumidity = getAverage(humidities);
 
+    let daysOfWeek =  day[0].dt_txt;
+    const dayDate = new Date(daysOfWeek);
+    let options = { weekday: 'long'};
+
     let template = document.getElementById("forecastTemplate");
     let clone = template.content.cloneNode(true);
 
+    clone.querySelector('.dayName').textContent = (new Intl.DateTimeFormat('en-US', options).format(dayDate));
     clone.querySelector('.averageTemp').textContent = Math.round(averageTemp) + "°C";
     clone.querySelector('.minTemp').textContent = Math.round(minTemp) + "°C";
     clone.querySelector('.maxTemp').textContent = Math.round(maxTemp) + "°C";
