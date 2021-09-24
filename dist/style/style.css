@@ -89,6 +89,9 @@ button:active {
     color: #304C89;
     background-color: #f1eee4;
 }
+button:hover {
+    transform: scale(1.02);
+}
 .rememberLabel{
     color: #1f325a;
     font-family: 'Noto Serif KR', serif;
